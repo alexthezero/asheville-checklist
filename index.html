@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asheville NC Checklist</title>
+  <meta name="description" content="A checklist web app for things to do in Asheville, North Carolina." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="heroInner">
+      <p class="eyebrow">Asheville, North Carolina</p>
+      <h1>Things To Do Checklist</h1>
+      <p class="heroText">Browse places, read details, check off what you’ve done, and keep your progress saved on this device.</p>
+      <div class="heroActions">
+        <a class="btn light" href="#places">View list</a>
+        <button class="btn ghost" id="copyCheckedBtn" type="button">Copy checked list</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Checklist controls">
+      <div class="stat"><strong id="completedCount">0</strong><span>completed</span></div>
+      <div class="stat"><strong id="totalCount">0</strong><span>places</span></div>
+      <label class="field"><span>Search</span><input id="searchInput" type="search" placeholder="Search Biltmore, hikes, food..." /></label>
+      <label class="field"><span>Category</span><select id="categoryFilter"><option value="all">All categories</option></select></label>
+      <button class="btn danger" id="resetBtn" type="button">Reset checks</button>
+    </section>
+
+    <section class="notice"><strong>Tip:</strong> Hours, prices, ticket rules, and Parkway road conditions can change. Use the links on each card before making firm plans.</section>
+
+    <section id="places" class="places" aria-live="polite"></section>
+  </main>
+
+  <footer>
+    <p>Checklist progress saves locally in your browser using localStorage. No login, database, or server required.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
