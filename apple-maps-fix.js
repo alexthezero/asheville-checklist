@@ -1,0 +1,4 @@
+function convertMapLinksToAppleMaps(){document.querySelectorAll('#places .cardActions a.linkBtn').forEach((link)=>{if(link.textContent.trim()==='Map'||link.textContent.trim()==='Apple Maps'){const href=link.getAttribute('href')||'';let query='';try{const url=new URL(href);query=url.searchParams.get('query')||url.searchParams.get('q')||'';}catch(error){}if(!query){const card=link.closest('.card');const title=card?.querySelector('h2')?.textContent?.trim()||'Asheville NC';query=title+' Asheville NC';}link.href='https://maps.apple.com/?q='+encodeURIComponent(query);link.textContent='Apple Maps';link.setAttribute('aria-label','Open in Apple Maps');}})}
+convertMapLinksToAppleMaps();
+const appleMapsList=document.getElementById('places');
+if(appleMapsList){const observer=new MutationObserver(()=>window.requestAnimationFrame(convertMapLinksToAppleMaps));observer.observe(appleMapsList,{childList:true,subtree:true});}
